@@ -9,8 +9,8 @@ export function CheckoutHeader({ cart }) {
   let cartQuantity = 0;
 
   cart.map((cartItem) => {
-    cartQuantity += cartItem.quantity}
-  );
+    cartQuantity += cartItem.quantity;
+  });
 
   return (
     <div className="checkout-header">
