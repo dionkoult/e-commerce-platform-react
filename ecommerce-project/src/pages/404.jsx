@@ -2,10 +2,10 @@ import { Header } from "../components/Header";
 import './404.css';
 import { Link } from "react-router";
 
-export function NotFound() {
+export function NotFound({ cart }) {
   return (
     <>
-      <Header />
+      <Header cart={cart} />
       <div className="not-found-page">
         <p>Page not found</p>
         <Link to="/">
