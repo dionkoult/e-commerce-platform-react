@@ -1,10 +1,13 @@
 import dayjs from "dayjs";
 import buyAgain from '../../assets/images/icons/buy-again.png';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Link } from 'react-router';
 import axios from 'axios';
+import checkMark from '../../assets/images/icons/checkmark.png';
 
 export function OrderDetailsGrid({ order, loadCart }) {
+  const [addedProductId, setAddedProductId] = useState(null);
+
   const ordersAddToCart = async (orderProductId) => {
     await axios.post('/api/cart-items', {
       productId: orderProductId,
@@ -12,6 +15,12 @@ export function OrderDetailsGrid({ order, loadCart }) {
     });
 
     await loadCart();
+
+    setAddedProductId(orderProductId);
+
+    setTimeout(() => {
+      setAddedProductId(null);
+    }, 2000);
   };
 
   return (
@@ -34,20 +43,30 @@ export function OrderDetailsGrid({ order, loadCart }) {
               <div className="product-quantity">
                 Quantity: {orderProduct.quantity}
               </div>
-              <button className="buy-again-button button-primary"
-                onClick={() => ordersAddToCart(orderProduct.product.id)}>
-                <img className="buy-again-icon" src={buyAgain} />
-                <span className="buy-again-message">
-                  Add to Cart</span>
-              </button>
+              <div className="buy-again-container">
+                <button className="buy-again-button button-primary"
+                  onClick={() => ordersAddToCart(orderProduct.product.id)}>
+                  <img className="buy-again-icon" src={buyAgain} />
+                  <span className="buy-again-message">
+                    Add to Cart</span>
+                </button>
+                <div className="added-to-cart" style={{
+                    display: addedProductId === orderProduct.product.id
+                      ? 'flex'
+                      : 'none'
+                  }}>
+                    <img src={checkMark} />
+                    Added
+                  </div>
+                </div>
             </div>
 
             <div className="product-actions">
-              <Link to={`/tracking/${order.id}/${orderProduct.productId}`}>
-                <button className="track-package-button button-secondary">
-                  Track package
-                </button>
-              </Link>
+                <Link to={`/tracking/${order.id}/${orderProduct.productId}`}>
+                  <button className="track-package-button button-secondary">
+                    Track package
+                  </button>
+                </Link>    
             </div>
           </Fragment>
         );

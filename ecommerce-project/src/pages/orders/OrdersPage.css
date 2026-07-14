@@ -13,6 +13,24 @@
   margin-right: auto;
 }
 
+.buy-again-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.orders-page .order-details-grid .product-details .added-to-cart {
+  color: rgb(25, 135, 84);
+  font-size: 16px;
+  align-items: center;
+  height: 19px;
+}
+
+.orders-page .order-details-grid .added-to-cart img {
+  height: 19px;
+  margin-right: 6px;
+}
+
 .orders-page .page-title {
   font-weight: 700;
   font-size: 26px;
@@ -104,6 +122,10 @@
     grid-template-columns: 110px 1fr;
     row-gap: 0;
     padding-bottom: 8px;
+  }
+
+  .orders-page .order-details-grid .product-details .added-to-cart {
+    margin-bottom: 12px;
   }
 }
 
