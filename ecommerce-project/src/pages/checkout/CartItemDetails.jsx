@@ -4,6 +4,7 @@ import axios from 'axios';
 export function CartItemDetails({ cartItem, loadCart }) {
   const deleteCartItem = async () => {
     await axios.delete(`/api/cart-items/${cartItem.productId}`);
+    
     await loadCart();
   }
 
