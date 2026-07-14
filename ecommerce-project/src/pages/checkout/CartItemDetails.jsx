@@ -4,9 +4,15 @@ import axios from 'axios';
 
 export function CartItemDetails({ cartItem, loadCart }) {
   const [inputUpdate, setInputUpdate] = useState(false);
+  const [quantity, setQuantity] = useState(cartItem.quantity);
+
 
   const updateInput = () => {
     setInputUpdate(!inputUpdate);
+  }
+
+  const updateQuantity = (event) => {
+    setQuantity(event.target.value);
   }
 
   const deleteCartItem = async () => {
@@ -32,6 +38,8 @@ export function CartItemDetails({ cartItem, loadCart }) {
             Quantity: <input className="update-input"
             type="text"
             style={{display: inputUpdate ? "inline" : "none"}}
+            value={quantity}
+            onChange={updateQuantity}
 
              /> <span className="quantity-label"
               style={{display: inputUpdate ? "none" : "inline"}}
