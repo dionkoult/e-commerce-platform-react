@@ -14,6 +14,10 @@
   margin-right: auto;
 }
 
+.update-input {
+  width: 30px;
+}
+
 .checkout-page .page-title {
   font-weight: 700;
   font-size: 22px;
@@ -116,7 +120,7 @@
 }
 
 .checkout-page .product-quantity .link-primary {
-  margin-left: 3px;
+  margin-left: 5px;
 }
 
 @media (max-width: 1000px) {
