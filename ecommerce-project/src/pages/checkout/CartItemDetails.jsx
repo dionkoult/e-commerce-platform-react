@@ -8,17 +8,18 @@ export function CartItemDetails({ cartItem, loadCart }) {
 
 
   const updateInput = async () => {
-    if (inputUpdate === true) {
-      await axios.put(`/api/cart-items/${cartItem.productId}`, {
-        quantity: quantity
-      });
-
-      loadCart();
-      setInputUpdate(!inputUpdate);
+    if (!inputUpdate) {
+      setInputUpdate(true);
+      return;
     }
 
-    setInputUpdate(!inputUpdate);
-  }
+    await axios.put(`/api/cart-items/${cartItem.productId}`, {
+      quantity
+    });
+
+    loadCart();
+    setInputUpdate(false);
+  };
 
   const quantityKeys = (event) => {
     if (event.key === 'Enter') {
@@ -27,7 +28,7 @@ export function CartItemDetails({ cartItem, loadCart }) {
 
     if (event.key === 'Escape') {
       setQuantity(cartItem.quantity);
-      setInputUpdate(!inputUpdate);
+      setInputUpdate(false);
     }
   }
 
@@ -52,7 +53,7 @@ export function CartItemDetails({ cartItem, loadCart }) {
 
       <div className="cart-item-details">
         <div className="product-name">
-          ${cartItem.product.name}
+          {cartItem.product.name}
         </div>
         <div className="product-price">
           {formatMoney(cartItem.product.priceCents)}
