@@ -7,12 +7,36 @@ export function CartItemDetails({ cartItem, loadCart }) {
   const [quantity, setQuantity] = useState(cartItem.quantity);
 
 
-  const updateInput = () => {
+  const updateInput = async () => {
+    if (inputUpdate === true) {
+      await axios.put(`/api/cart-items/${cartItem.productId}`, {
+        quantity: quantity
+      });
+
+      loadCart();
+      setInputUpdate(!inputUpdate);
+    }
+
     setInputUpdate(!inputUpdate);
   }
 
+  const quantityKeys = (event) => {
+    if (event.key === 'Enter') {
+      updateInput();
+    }
+
+    if (event.key === 'Escape') {
+      setQuantity(cartItem.quantity);
+      setInputUpdate(!inputUpdate);
+    }
+  }
+
   const updateQuantity = (event) => {
-    setQuantity(event.target.value);
+    const value = Number(event.target.value);
+
+    if (value >= 1 && value <= 10) {
+      setQuantity(value);
+    }
   }
 
   const deleteCartItem = async () => {
@@ -36,10 +60,11 @@ export function CartItemDetails({ cartItem, loadCart }) {
         <div className="product-quantity">
           <span>
             Quantity: <input className="update-input"
-            type="text"
+            type="number"
             style={{display: inputUpdate ? "inline" : "none"}}
             value={quantity}
             onChange={updateQuantity}
+            onKeyDown={quantityKeys}
 
              /> <span className="quantity-label"
               style={{display: inputUpdate ? "none" : "inline"}}
