@@ -4,8 +4,8 @@ import axios from 'axios';
 import checkMark from '../../assets/images/icons/checkmark.png';
 
 export function Product({ product, loadCart }) {
-  const [ quantity, setQuantity ] = useState(1);
-  const [ addedMessage, setAddedMessage ] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [addedMessage, setAddedMessage] = useState(false);
 
   const addToCart = async () => {
     await axios.post('/api/cart-items', {
@@ -28,7 +28,8 @@ export function Product({ product, loadCart }) {
   }
 
   return (
-    <div className="product-container">
+    <div className="product-container"
+      data-testid="product-container">
       <div className="product-image-container">
         <img className="product-image"
           data-testid="product-image"
