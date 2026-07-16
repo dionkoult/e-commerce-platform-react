@@ -4,13 +4,22 @@ import logoWhite from "../assets/images/logo-white.png";
 import mobileLogoWhite from "../assets/images/mobile-logo-white.png";
 import searchIcon from '../assets/images/icons/search-icon.png';
 import cartIcon from '../assets/images/icons/cart-icon.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router';
 
 export function Header({ cart }) {
-  const [ searchInput, setSearchInput ] = useState(null);
+  const [ searchInput, setSearchInput ] = useState("");
 
   const navigate = useNavigate();
+  const [ searchParams ] = useSearchParams();
+  const search = searchParams.get('search');
+
+  useEffect(() => {
+    if (search) {
+      setSearchInput(search);
+    }
+  }, [search]);
 
   function updateSearchInput(event) {
     setSearchInput(event.target.value);
@@ -38,6 +47,7 @@ export function Header({ cart }) {
           type="text"
           placeholder="Search"
           onChange={updateSearchInput}
+          value={searchInput}
           />
 
         <button className="search-button"
