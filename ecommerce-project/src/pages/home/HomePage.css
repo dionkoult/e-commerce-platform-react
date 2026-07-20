@@ -155,3 +155,12 @@
   height: 34px;
   margin-top: 1px;
 }
+
+.no-products-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  grid-column: 1 / -1;
+  font-size: 22px;
+}
