@@ -66,7 +66,7 @@ export function OrderDetailsGrid({ order, loadCart }) {
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </Link>    
+                </Link>
             </div>
           </Fragment>
         );

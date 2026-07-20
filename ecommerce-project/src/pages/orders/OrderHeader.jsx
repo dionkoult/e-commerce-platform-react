@@ -18,13 +18,15 @@ export function OrderHeader({ order }) {
           </div>
         </div>
       </div>
-
       <div className="order-header-right-section">
         <div className="order-header-label">Order ID:</div>
         <div>
           {order.id}
         </div>
       </div>
+      <button className='delete-button'>
+        Delete
+      </button>
     </div>
   );
 }
