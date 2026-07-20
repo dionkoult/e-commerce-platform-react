@@ -164,3 +164,9 @@
   grid-column: 1 / -1;
   font-size: 22px;
 }
+
+@media (max-width: 575px) {
+  .no-products-found {
+    font-size: 18px;
+  }
+}

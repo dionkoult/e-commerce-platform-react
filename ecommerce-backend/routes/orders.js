@@ -70,6 +70,20 @@ router.post('/', async (req, res) => {
   res.status(201).json(order);
 });
 
+router.delete('/:orderId', async (req, res) => {
+  const { orderId } = req.params;
+
+  const order = await Order.findByPk(orderId);
+
+  if (!order) {
+    return res.status(404).json({ error: 'Order not found' });
+  }
+
+  await order.destroy();
+
+  res.sendStatus(204);
+});
+
 router.get('/:orderId', async (req, res) => {
   const { orderId } = req.params;
   const expand = req.query.expand;
