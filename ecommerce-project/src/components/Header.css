@@ -34,12 +34,8 @@
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
-.header .header-link:hover {
-  border: 1px solid white;
-}
-
 .header .logo {
-  height: 26px;
+  height: 35px;
   margin-top: 1px;
 }
 
@@ -54,7 +50,7 @@
 
   .header .mobile-logo {
     display: block;
-    height: 26px;
+    height: 35px;
     margin-top: 1px;
   }
 }
@@ -80,6 +76,14 @@
   border-bottom-right-radius: 0;
 }
 
+.header .search-bar:focus {
+  outline: none;
+  box-shadow:
+    inset 2px 0 0 rgb(186, 255, 190),
+    inset 0 2px 0 rgb(186, 255, 190),
+    inset 0 -2px 0 rgb(186, 255, 190);
+}
+
 .header .search-button {
   background-color: rgb(186, 255, 190);
   border: none;
@@ -88,6 +92,10 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   flex-shrink: 0;
+}
+
+.header .search-button:hover {
+  background-color: rgb(159, 255, 162);;
 }
 
 .header .search-icon {
@@ -147,6 +155,19 @@
   position: absolute;
   top: 8.5px;
   right: 46px;
+
+  width: 26px;
+  text-align: center;
+}
+
+.header .cart-quantity-1000 {
+  color: rgb(8, 79, 45);
+  font-size: 12px;
+  font-weight: 700;
+
+  position: absolute;
+  top: 8.5px;
+  right: 48px;
 
   width: 26px;
   text-align: center;

@@ -1,7 +1,7 @@
 import '../pages/checkout/CheckoutHeader.css';
 import { NavLink } from 'react-router';
-import logo from "../assets/images/logo.png";
-import mobileLogo from "../assets/images/mobile-logo.png";
+import logo from "../assets/images/Logo_Black.svg";
+import mobileLogo from "../assets/images/Favicon_White.png";
 import checkoutLockIcon from '../assets/images/icons/checkout-lock-icon.png';
 
 

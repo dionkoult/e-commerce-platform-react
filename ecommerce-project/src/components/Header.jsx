@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router';
 import './Header.css';
-import logoWhite from "../assets/images/logo-white.png";
-import mobileLogoWhite from "../assets/images/mobile-logo-white.png";
+import logoWhite from "../assets/images/Logo_White.svg";
+import mobileLogoBlack from "../assets/images/Favicon_Black.png";
 import searchIcon from '../assets/images/icons/search-icon.png';
 import cartIcon from '../assets/images/icons/cart-icon.png';
 import { useState, useEffect } from 'react';
@@ -25,6 +25,14 @@ export function Header({ cart }) {
     setSearchInput(event.target.value);
   }
 
+  function keyActions(event) {
+    if (event.key === 'Enter') {
+      navigate(`/?search=${searchInput}`);
+    } else if (event.key === 'Escape') {
+      setSearchInput('');
+    }
+  }
+
   let totalQuantity = 0;
 
   cart.forEach((cartItem) => {
@@ -38,7 +46,7 @@ export function Header({ cart }) {
           <img className="logo"
             src={logoWhite} />
           <img className="mobile-logo"
-            src={mobileLogoWhite} />
+            src={mobileLogoBlack} />
         </NavLink>
       </div>
 
@@ -48,6 +56,7 @@ export function Header({ cart }) {
           placeholder="Search"
           onChange={updateSearchInput}
           value={searchInput}
+          onKeyDown={keyActions}
           />
 
         <button className="search-button"
@@ -67,7 +76,7 @@ export function Header({ cart }) {
 
         <NavLink className="cart-link header-link" to="/checkout">
           <img className="cart-icon" src={cartIcon} />
-          <div className="cart-quantity">{totalQuantity}</div>
+          <div className={totalQuantity < 1000 ? "cart-quantity" : "cart-quantity-1000"}>{totalQuantity}</div>
           <div className="cart-text">Cart</div>
         </NavLink>
       </div>
