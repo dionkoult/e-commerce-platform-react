@@ -16,6 +16,14 @@ export function OrdersPage({ cart, loadCart }) {
       fetchOrdersData();
   }, []);
 
+  async function clearOrders() {
+    for (const order of orders) {
+      await axios.delete(`/api/orders/${order.id}`);
+    }
+
+    setOrders([]);
+  }
+
   return (
     <>
       <title>Orders</title>
@@ -23,7 +31,12 @@ export function OrdersPage({ cart, loadCart }) {
       <Header cart={cart} />
 
       <div className="orders-page">
-        <div className="page-title">Your Orders</div>
+        <div className="page-title">
+          Your Orders
+          <button className={orders.length > 0 ? 'clear-button' : 'hidden-clear-button'} onClick={clearOrders}>
+            Clear
+          </button>
+        </div>
         <OrdersGrid orders={orders} loadCart={loadCart} setOrders={setOrders} />
       </div>
     </>
