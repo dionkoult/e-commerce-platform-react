@@ -22,6 +22,39 @@
   font-weight: 700;
   font-size: 22px;
   margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.empty-cart {
+  font-size: 22px;
+  display: flex;
+  height: 270px;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-button-cp {
+  background-color: rgb(153, 21, 21);
+  color: white;
+  font-size: 14px;
+  width: 60px;
+  height: 36px;
+  border: none;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden-clear-button-cp {
+  display: none;
+}
+
+.clear-button-cp:hover {
+  opacity: 0.8;
 }
 
 .checkout-page .checkout-grid {
@@ -212,4 +245,10 @@
 
   margin-top: 20px;
   margin-bottom: 19px;
+}
+
+@media (max-width: 575px) {
+  .empty-cart {
+    font-size: 18px;
+  }
 }

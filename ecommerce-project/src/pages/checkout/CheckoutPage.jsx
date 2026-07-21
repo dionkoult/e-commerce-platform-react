@@ -27,6 +27,14 @@ export function CheckoutPage({ cart, loadCart }) {
     reloadPaymentSummary();
   }, [cart]);
 
+  async function clearCart() {
+    for (const product of cart) {
+      await axios.delete(`/api/cart-items/${product.productId}`);
+    }
+
+    await loadCart();
+  }
+
   return (
     <>
       <title>Checkout</title>
@@ -34,11 +42,31 @@ export function CheckoutPage({ cart, loadCart }) {
       <CheckoutHeader cart={cart} />
 
       <div className="checkout-page">
-        <div className="page-title">Review your order</div>
+        <div className="page-title">
+          Review your order
+          <button className={cart.length > 0 ? 'clear-button-cp' : 'hidden-clear-button-cp'}
+            onClick={clearCart}>
+            Clear
+          </button>
+        </div>
 
         <div className="checkout-grid">
-          <OrderSummary cart={cart} deliveryOptions={deliveryOptions} loadCart={loadCart} />
-          <PaymentSummary paymentSummary={paymentSummary} loadCart={loadCart} />
+          {cart.length > 0 ? (
+            <OrderSummary
+              cart={cart}
+              deliveryOptions={deliveryOptions}
+              loadCart={loadCart}
+            />
+          ) : (
+            <div className="empty-cart">
+              Your cart is empty.
+            </div>
+          )}
+
+          <PaymentSummary
+            paymentSummary={paymentSummary}
+            loadCart={loadCart}
+          />
         </div>
       </div>
     </>

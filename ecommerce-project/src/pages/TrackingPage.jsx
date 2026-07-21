@@ -58,7 +58,7 @@ export function TrackingPage({ cart }) {
           </Link>
 
           <div className="delivery-date">
-            {deliveryPercent >= 100 ? "Delivered on " : "Arriiving on "}
+            {deliveryPercent >= 100 ? "Delivered on " : "Arriving on "}
             {dayjs(orderProduct.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
           </div>
 
