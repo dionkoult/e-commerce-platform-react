@@ -16,6 +16,5 @@ export default defineConfig({
   },
   build: {
     outDir: '../ecommerce-backend/dist'
-  },
-  base: '/ecommerce-project-react'
+  }
 })

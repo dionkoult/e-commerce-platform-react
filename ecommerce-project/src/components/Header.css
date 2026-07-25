@@ -67,13 +67,18 @@
   flex: 1;
   width: 0;
   font-size: 16px;
-  height: 38px;
   padding-left: 15px;
   border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.header .search-bar,
+.header .search-button {
+  height: 40px;
+  box-sizing: border-box;
 }
 
 .header .search-bar:focus {
@@ -88,7 +93,6 @@
   background-color: rgb(186, 255, 190);
   border: none;
   width: 45px;
-  height: 40px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   flex-shrink: 0;
