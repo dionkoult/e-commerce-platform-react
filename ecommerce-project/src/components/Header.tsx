@@ -29,11 +29,11 @@ export function Header({ cart }: HeaderProps) {
     }
   }, [search]);
 
-  function updateSearchInput(event) {
+  function updateSearchInput(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchInput(event.target.value);
   }
 
-  function keyActions(event) {
+  function keyActions(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === 'Enter') {
       navigate(`/?search=${searchInput}`);
     } else if (event.key === 'Escape') {
