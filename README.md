@@ -1,5 +1,25 @@
-# E-commerce Platform with React
+# About
+A full-stack Amazon clone. This version uses a dedicated backend to manage data and API requests, following a more realistic full-stack architecture similar to modern production applications.
 
-An e-commerce platform built with React for the frontend and Node.js with Express for the backend.
+### Features
+- Responsive design
+- Browse and search products
+- Place orders
+- View order history
+- Cancel or clear orders
+- Track orders
 
-Unlike my previous e-commerce project, this version uses a dedicated backend to manage data and API requests, following a more realistic full-stack architecture similar to modern production applications.
+### Technologies
+
+#### Frontend
+- HTML
+- CSS
+- Javascript
+- React
+
+#### Backend
+Node.js
+Express
+
+## Live Website
+https://e-commerce-platform-react.onrender.com/
