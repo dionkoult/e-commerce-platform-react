@@ -18,8 +18,8 @@ A full-stack Amazon clone. This version uses a dedicated backend to manage data 
 - React
 
 #### Backend
-Node.js
-Express
+- Node.js
+- Express
 
 ## Live Website
 https://e-commerce-platform-react.onrender.com/
