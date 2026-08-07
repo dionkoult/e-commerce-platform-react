@@ -16,6 +16,7 @@ A full-stack Amazon clone. This version uses a dedicated backend to manage data 
 - CSS
 - Javascript
 - React
+- Typescript
 
 #### Backend
 - Node.js
